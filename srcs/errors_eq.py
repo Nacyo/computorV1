@@ -22,7 +22,7 @@ def error_s():
         return "er"
     else:
         eq = sys.argv[1]
-    list_deg = re.findall('(\^- ?[0123456789]|\^ ?[3456789])', eq)
+    list_deg = re.findall('(\^- ?[0-9]|\^ ?[3-9])', eq)
     if (list_deg):
         error_degree = list(map(format_error_degree, list_deg))
         handle_error_degree(error_degree)
