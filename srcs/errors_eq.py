@@ -1,6 +1,19 @@
 import sys
 import re
 
+def format_error_degree(str):
+    str = str[1:]
+    return (int(str))
+
+def handle_error_degree(list):
+    max_value = max(list)
+    deg = min(list)
+    if max_value > 2:
+        deg = max_value
+        print("The polynomial degree is {:d}, I cannot solve".format(deg))
+    else:
+        print("There is a power {:d}, I cannot solve with negative degree".format(deg))
+
 def error_s():
     if len(sys.argv) == 1:
         eq = input('Enter your equation: ')
@@ -9,9 +22,10 @@ def error_s():
         return "er"
     else:
         eq = sys.argv[1]
-    error_degree = re.findall('(\^- ?[0123456789]|\^ ?[3456789])', eq)
-    if (error_degree) :
-        print('Error degree, I can\'t solve')
+    list_deg = re.findall('(\^- ?[0123456789]|\^ ?[3456789])', eq)
+    if (list_deg):
+        error_degree = list(map(format_error_degree, list_deg))
+        handle_error_degree(error_degree)
         return "er"
     table = str.maketrans("", "", " \r\n\t\f\v")
     eq = eq.translate(table)
