@@ -3,7 +3,7 @@ import re
 
 def find_coefficient(eq):
     coefs = [0, 0, 0]
-    eq = re.sub(r'(X(?!\^))', 'X^1' , eq).replace("--", "+").replace("+-", "-").replace("-+", "-")
+    eq = re.sub(r'(X(?!\^))', 'X^1', eq).replace("--", "+").replace("+-", "-").replace("-+", "-")
     all = re.findall('([-+=]?)([\d\.]+)?(\*?[xX](?:\^(\d+))?)?', eq)
     all = [list(item) for item in all]
     all.pop()
