@@ -8,6 +8,7 @@ def print_solutions(z1, z2, coefs):
     else:
         print("The solution is {:.10g}".format(z1))
 
+
 def print_degree(coefs):
     if coefs[2]:
         degree = 2
@@ -18,6 +19,7 @@ def print_degree(coefs):
     print("Polynomial degree: {:d}".format(degree))
     return (degree)
 
+
 def print_reduced_form(coefs):
     if coefs[2] != 0:
         reduced_form = "Reduced form: {:.10g} * X^0 {:+.10g} * X^1 {:+.10g} * X^2 = 0".format(coefs[0], coefs[1], coefs[2])
@@ -25,7 +27,7 @@ def print_reduced_form(coefs):
         reduced_form = "Reduced form: {:.10g} * X^0 {:+.10g} * X^1 = 0".format(coefs[0], coefs[1])
     else:
         reduced_form = "Reduced form: {:.10g} * X^0 = 0".format(coefs[0])
-    print(reduced_form.replace("+", "+ ").replace("-", "- ")) #mettre un espace entre signe et chiffre
+    print(reduced_form.replace("+", "+ ").replace("-", "- "))  # mettre un espace entre signe et chiffre
 
 
 def print_des(des, deg):

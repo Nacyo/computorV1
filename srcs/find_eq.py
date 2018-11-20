@@ -1,5 +1,6 @@
 import re
 
+
 def find_coefficient(eq):
     coefs = [0, 0, 0]
     eq = re.sub(r'(X(?!\^))', 'X^1' , eq).replace("--", "+").replace("+-", "-").replace("-+", "-")

@@ -1,9 +1,11 @@
 import sys
 import re
 
+
 def format_error_degree(str):
     str = str[1:]
     return (int(str))
+
 
 def handle_error_degree(list):
     max_value = max(list)
@@ -13,6 +15,7 @@ def handle_error_degree(list):
         print("The polynomial degree is {:d}, I cannot solve".format(deg))
     else:
         print("There is a power {:d}, I cannot solve with negative degree".format(deg))
+
 
 def error_s():
     if len(sys.argv) == 1:
@@ -30,8 +33,8 @@ def error_s():
     table = str.maketrans("", "", " \r\n\t\f\v")
     eq = eq.translate(table)
     error_syntax = re.findall(r'(-)(\+-)|(\+)(-\+)|\+\*-|(-)(\*)|(\*-\+)|(-\+\*)|(-)(--)|(--)(\+)|(\+)(--)|(\+)(\+)|(\^)(0([\d]))|(\^)([\d])(\*)|([xX])([xX])|([\d])([xX])|([xX])([*.\d])|([=])([=+])|([\^ =.*])([\^ =.*])|([\^ x.*=X+-])\1|[^\d^ x.*=X+-]|(\^)[^\d]|([\^ .=+*-])$|^([\^ .=*])|^((?!=).)*$', eq)
-    if (error_syntax) :
+    if (error_syntax):
         print('Error syntax, I can\'t solve')
         return "er"
-    eq = re.sub('x','X', eq.strip())
+    eq = re.sub('x', 'X', eq.strip())
     return eq

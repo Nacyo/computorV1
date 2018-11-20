@@ -3,9 +3,10 @@ from srcs.errors_eq import *
 from srcs.find_eq import *
 from srcs.print_eq import *
 
+
 def main():
-     try:
-        eq =  error_s()
+    try:
+        eq = error_s()
         if eq == "er":
             sys.exit(1)
         coefs = find_coefficient(eq)
@@ -15,9 +16,10 @@ def main():
         print_des(des, deg)
         z1, z2 = find_solutions(coefs, des)
         print_solutions(z1, z2, coefs)
-     except SystemExit as e:
+    except SystemExit as e:
         sys.exit(e)
-     except:
+    except:
         print("Erreur")
+
 
 main()
